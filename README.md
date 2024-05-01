@@ -1,3 +1,51 @@
+# Результат виконання завдання
+### Завдання: 
+- Обчислити суму елементів матриці розміром N x M
+
+### Результат роботи:
+![](images/1.png)
+
+### Код:
+```java
+import java.util.Arrays;
+/*
+ * Клас, що містить метод для обчислення двух матриць.
+ */
+public class Main {
+
+    /*
+     * Метод, для обчислення матриць
+     * @param matrix1 Перша матриця.
+     * @param matrix2 Друга матриця.
+     * @return Результат обчислень суми матриць.
+     * @throws IllegalArgumentException Якщо матриці мають різний розмір.
+     */
+    public static int[][] sumMatrices(int[][] matrix1, int[][] matrix2) {
+        if (matrix1.length != matrix2.length || matrix1[0].length != matrix2[0].length) {
+            throw new IllegalArgumentException("Матриці мають різний розмір");
+        }
+
+        // Отримання кількості рядків і стовпців.
+        int rows = matrix1.length;
+        int cols = matrix1[0].length;
+
+        //Створення нової мтариці для збереження результату.
+        int[][] result = Arrays.copyOf(matrix1, matrix1.length);
+
+        // Використання метооду Arrays.setAll для обчислення суми елементів матриці.
+        for (int i = 0; i < rows; i++) {
+            final int rowIndex = i;
+            Arrays.setAll(result[i], j -> matrix1[rowIndex][j] + matrix2[rowIndex][j]);
+        }
+        return result;
+    }
+}
+
+```
+
+
+
+
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=14918038)
 # Практична робота "Поглиблене використання масивів"
 
